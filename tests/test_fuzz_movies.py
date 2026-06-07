@@ -18,8 +18,8 @@ QUERYABLE_FIELDS = [
     "imdb.votes",
 ]
 COMPARISON_OPS = ["$eq", "$gt", "$lt", "$gte", "$lte", "$ne"]
-LOGICAL_OPS = ["$and", "$or"]
-VALUES = [0, 1, -1, None, "", "active", "inactive", 99999, True, False]
+LOGICAL_OPS = ["$and", "$or", "$nor"]
+VALUES = [0, 1, -1, None, "", "PG", "R", "TV-MA", 99999, True, False, "N/A"]
 
 
 @st.composite
@@ -147,10 +147,12 @@ def test_logical_query_matches_set_combination_of_clauses(
     combined_ids = {m["_id"] for m in movies.find({op: clauses})}
     clause_id_sets = [{m["_id"] for m in movies.find(clause)} for clause in clauses]
 
-    expected_ids = (
-        set.intersection(*clause_id_sets)
-        if op == "$and"
-        else set.union(*clause_id_sets)
-    )
+    if op == "$and":
+        expected_ids = set.intersection(*clause_id_sets)
+    elif op == "$or":
+        expected_ids = set.union(*clause_id_sets)
+    else:  # $nor: matches documents that satisfy none of the clauses
+        all_ids = {m["_id"] for m in movies.find()}
+        expected_ids = all_ids - set.union(*clause_id_sets)
 
     assert combined_ids == expected_ids
