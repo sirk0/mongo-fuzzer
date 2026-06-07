@@ -3,3 +3,4 @@ pytest==9.0.3
 mypy==2.1.0
 hypothesis==6.155.2
 faker==40.21.0
+python-dotenv==1.0.1
