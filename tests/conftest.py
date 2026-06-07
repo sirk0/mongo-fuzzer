@@ -48,6 +48,6 @@ def sample_mflix_db(mongo_client: MongoClient) -> Generator[Database, None, None
         db[name].delete_many({})
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def movies(sample_mflix_db: Database) -> Collection:
     return sample_mflix_db["movies"]

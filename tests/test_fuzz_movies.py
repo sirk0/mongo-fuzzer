@@ -1,15 +1,12 @@
 import re
 
 from faker import Faker
-from hypothesis import HealthCheck, given, settings
+from hypothesis import given
 from hypothesis import strategies as st
 from pymongo.collection import Collection
 
 fake = Faker()
 
-fuzz = settings(
-    suppress_health_check=[HealthCheck.function_scoped_fixture], deadline=None
-)
 
 QUERYABLE_FIELDS = [
     "year",
@@ -40,7 +37,6 @@ def logical_query(draw: st.DrawFn) -> tuple[str, list[dict]]:
     return op, clauses
 
 
-@fuzz
 @given(
     lo=st.integers(min_value=1880, max_value=2030),
     hi=st.integers(min_value=1880, max_value=2030),
@@ -57,7 +53,6 @@ def test_year_range_query_matches_manual_filter(
     assert all(low <= m["year"] <= high for m in results)
 
 
-@fuzz
 @given(threshold=st.floats(min_value=0, max_value=10, allow_nan=False))
 def test_rating_threshold_query_matches_manual_filter(
     movies: Collection, threshold: float
@@ -69,7 +64,6 @@ def test_rating_threshold_query_matches_manual_filter(
     assert all(m["imdb"]["rating"] >= threshold for m in results)
 
 
-@fuzz
 @given(data=st.data())
 def test_genre_query_returns_only_matching_movies(
     movies: Collection, data: st.DataObject
@@ -85,7 +79,6 @@ def test_genre_query_returns_only_matching_movies(
     assert len(results) > 0
 
 
-@fuzz
 @given(data=st.data())
 def test_title_regex_query_matches_substring_case_insensitively(
     movies: Collection, data: st.DataObject
@@ -104,7 +97,6 @@ def test_title_regex_query_matches_substring_case_insensitively(
     assert all(re.search(pattern, m["title"], re.IGNORECASE) for m in results)
 
 
-@fuzz
 @given(direction=st.sampled_from([1, -1]))
 def test_sort_by_year_returns_ordered_results(
     movies: Collection, direction: int
@@ -115,7 +107,6 @@ def test_sort_by_year_returns_ordered_results(
     assert years == sorted(years, reverse=(direction == -1))
 
 
-@fuzz
 @given(st.data())
 def test_query_for_fake_title_returns_no_results(
     movies: Collection, data: st.DataObject
@@ -126,7 +117,6 @@ def test_query_for_fake_title_returns_no_results(
     assert movies.count_documents({"title": fake_title}) == 0
 
 
-@fuzz
 @given(limit=st.integers(min_value=1, max_value=20))
 def test_projection_returns_only_requested_fields(
     movies: Collection, limit: int
@@ -137,7 +127,6 @@ def test_projection_returns_only_requested_fields(
     assert all(set(m.keys()) == {"title", "year"} for m in results)
 
 
-@fuzz
 @given(query=comparison_clause())
 def test_dynamic_comparison_query_executes_consistently(
     movies: Collection, query: dict
@@ -149,7 +138,6 @@ def test_dynamic_comparison_query_executes_consistently(
     assert {m["_id"] for m in results} <= all_ids
 
 
-@fuzz
 @given(generated=logical_query())
 def test_logical_query_matches_set_combination_of_clauses(
     movies: Collection, generated: tuple[str, list[dict]]
