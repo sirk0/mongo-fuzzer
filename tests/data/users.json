@@ -1,0 +1,242 @@
+[
+  {
+    "_id": {
+      "$oid": "59b99db4cfa9a34dcd7885b6"
+    },
+    "name": "Ned Stark",
+    "email": "sean_bean@gameofthron.es",
+    "password": "$2b$12$UREFwsRUoyF0CRqGNK0LzO0HM/jLhgUCNNIJ9RJAqMUQ74crlJ1Vu"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db4cfa9a34dcd7885b7"
+    },
+    "name": "Robert Baratheon",
+    "email": "mark_addy@gameofthron.es",
+    "password": "$2b$12$yGqxLG9LZpXA2xVDhuPnSOZd.VURVkz7wgOLY3pnO0s7u2S1ZO32y"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db5cfa9a34dcd7885b8"
+    },
+    "name": "Jaime Lannister",
+    "email": "nikolaj_coster-waldau@gameofthron.es",
+    "password": "$2b$12$6vz7wiwO.EI5Rilvq1zUc./9480gb1uPtXcahDxIadgyC3PS8XCUK"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db5cfa9a34dcd7885b9"
+    },
+    "name": "Catelyn Stark",
+    "email": "michelle_fairley@gameofthron.es",
+    "password": "$2b$12$fiaTH5Sh1zKNFX2i/FTEreWGjxoJxvmV7XL.qlfqCr8CwOxK.mZWS"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db6cfa9a34dcd7885ba"
+    },
+    "name": "Cersei Lannister",
+    "email": "lena_headey@gameofthron.es",
+    "password": "$2b$12$FExjgr7CLhNCa.oUsB9seub8mqcHzkJCFZ8heMc8CeIKOZfeTKP8m"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db6cfa9a34dcd7885bb"
+    },
+    "name": "Daenerys Targaryen",
+    "email": "emilia_clarke@gameofthron.es",
+    "password": "$2b$12$NzpbWHdMytemLtTfFKduHenr2NZ.rvxIKuYM4AWLTFaUShxbJ.G3q"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db6cfa9a34dcd7885bc"
+    },
+    "name": "Jorah Mormont",
+    "email": "iain_glen@gameofthron.es",
+    "password": "$2b$12$K8bKkwnpkrjsBPzASZxO/.yj7d9kvupiVtO6JA3Xl106AKXr3pXFK"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db7cfa9a34dcd7885bd"
+    },
+    "name": "Petyr Baelish",
+    "email": "aidan_gillen@gameofthron.es",
+    "password": "$2b$12$qM.YvmiekyYYY7p7phpK3OicbRCDkN7ESwYAnG/o9YnfHC0Mhkmbi"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db8cfa9a34dcd7885be"
+    },
+    "name": "Viserys Targaryen",
+    "email": "harry_lloyd@gameofthron.es",
+    "password": "$2b$12$cpwVmU4DyuQxgwpdrVJhaudzbKOXlHRbf.tpCuHjpAqonuoyvvEG6"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db9cfa9a34dcd7885bf"
+    },
+    "name": "Jon Snow",
+    "email": "kit_harington@gameofthron.es",
+    "password": "$2b$12$fDEu1Ru66tLWAVidMN.b0.929BlfnyqdGuhWMyzfOAf/ATYOyLoY6"
+  },
+  {
+    "_id": {
+      "$oid": "59b99db9cfa9a34dcd7885c0"
+    },
+    "name": "Sansa Stark",
+    "email": "sophie_turner@gameofthron.es",
+    "password": "$2b$12$nCIVE81..AtAoysPZkl19.G5V0EdIwwsZh1f18lxWEr3dlpG/Uusi"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbacfa9a34dcd7885c1"
+    },
+    "name": "Arya Stark",
+    "email": "maisie_williams@gameofthron.es",
+    "password": "$2b$12$19h3KjeTg3/sPNFHztdb6eGWKrCxIwlVXVSh9POSi5PS9kSlguZEq"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbacfa9a34dcd7885c2"
+    },
+    "name": "Robb Stark",
+    "email": "richard_madden@gameofthron.es",
+    "password": "$2b$12$XPLvWQW7tjWc/PX9jMVRnO8w.lR6hv144ee8pc8nDsWIAWxfwxHzy"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbbcfa9a34dcd7885c3"
+    },
+    "name": "Theon Greyjoy",
+    "email": "alfie_allen@gameofthron.es",
+    "password": "$2b$12$x574mziridS3mEQVTbKbY.lK.ngIDyZJnTw17G7Gk6n4lnWVSrWL."
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbbcfa9a34dcd7885c4"
+    },
+    "name": "Bran Stark",
+    "email": "isaac_hempstead_wright@gameofthron.es",
+    "password": "$2b$12$Z7/ztVm8eWMDwTg.doS.UO7JbsbA9IbLomND1VxIZEdAN3keW6csS"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbbcfa9a34dcd7885c5"
+    },
+    "name": "Joffrey Baratheon",
+    "email": "jack_gleeson@gameofthron.es",
+    "password": "$2b$12$fIYLjRg5tZcTcqy30.MJLO4JRblLhsIhFwYTgUpFBbvnf9S4ONbtW"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbccfa9a34dcd7885c6"
+    },
+    "name": "Sandor Clegane",
+    "email": "rory_mccann@gameofthron.es",
+    "password": "$2b$12$DKIKOBMbN76vskkRyJ1AjuELigfnx.SeG8vu73k24kfMcO637bSqa"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbdcfa9a34dcd7885c7"
+    },
+    "name": "Tyrion Lannister",
+    "email": "peter_dinklage@gameofthron.es",
+    "password": "$2b$12$xtHwQNXYlQzP2REobUDlzuQimjzBlXrTx1GnwP.xkfULeuuUpRxa2"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbdcfa9a34dcd7885c8"
+    },
+    "name": "Khal Drogo",
+    "email": "jason_momoa@gameofthron.es",
+    "password": "$2b$12$7tgpVkBxUqQiYFkHjZyoMuEzFU5BSI.FYkOXHu4zCRlRsa15sHQo6"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbecfa9a34dcd7885c9"
+    },
+    "name": "Davos Seaworth",
+    "email": "liam_cunningham@gameofthron.es",
+    "password": "$2b$12$jbgNoWG97LHNIm4axwXDz.tkFITsmw/aylIY/lZDaJRgnHZjB029e"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbecfa9a34dcd7885ca"
+    },
+    "name": "Samwell Tarly",
+    "email": "john_bradley-west@gameofthron.es",
+    "password": "$2b$12$ZcZj9wKjlT/dCCrmupiZZ..JA3c9HoufxRygL1DkY9hsClT0iyflG"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbecfa9a34dcd7885cb"
+    },
+    "name": "Margaery Tyrell",
+    "email": "natalie_dormer@gameofthron.es",
+    "password": "$2b$12$AjC.876rd2dgsSIu.5c4qembdVfdDajMIgueMYuOBoskJUGHzpw46"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbfcfa9a34dcd7885cc"
+    },
+    "name": "Stannis Baratheon",
+    "email": "stephen_dillane@gameofthron.es",
+    "password": "$2b$12$vbPwOM9QkSOsOXRgLSZiqe9JPJtBX1JUwm06d3lYVViKxrYCIyhEm"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbfcfa9a34dcd7885cd"
+    },
+    "name": "Melisandre",
+    "email": "carice_van_houten@gameofthron.es",
+    "password": "$2b$12$ZdSvCDMwVLFgJGDOsDbFLOD/utICnkbJV0OVJJ8lUHqSK3VbuqKuS"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dbfcfa9a34dcd7885ce"
+    },
+    "name": "Jeor Mormont",
+    "email": "james_cosmo@gameofthron.es",
+    "password": "$2b$12$tz5dSvAjtduFuuXFQwMH2OJwb3QKr9/gR5uefaQ3gHJojhLaKxdNK"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dc0cfa9a34dcd7885cf"
+    },
+    "name": "Bronn",
+    "email": "jerome_flynn@gameofthron.es",
+    "password": "$2b$12$9rzMIF3lv7kASdTdam2eOOjWrDSN.qi2hpY5tyOfDPe545XfrQHpu"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dc0cfa9a34dcd7885d0"
+    },
+    "name": "Varys",
+    "email": "conleth_hill@gameofthron.es",
+    "password": "$2b$12$mV9NHXHLISu3fDdd6jtU2.6DstBgnC6iWQQR.1h/MsDZp3ftTUBSq"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dc0cfa9a34dcd7885d1"
+    },
+    "name": "Shae",
+    "email": "sibel_kekilli@gameofthron.es",
+    "password": "$2b$12$FyKikoJynO1kGJ6cTuXaKeKRWauwI5TNlTYiNBgPnizN6XoGB8qpi"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dc2cfa9a34dcd7885d2"
+    },
+    "name": "Tywin Lannister",
+    "email": "charles_dance@gameofthron.es",
+    "password": "$2b$12$/i04T5yEJvmsBhF0Jd.kJOk3ZhRzezbTU7ASEM5o43Xxsa4o6IgEy"
+  },
+  {
+    "_id": {
+      "$oid": "59b99dc2cfa9a34dcd7885d3"
+    },
+    "name": "Ygritte",
+    "email": "rose_leslie@gameofthron.es",
+    "password": "$2b$12$knwl2v71.oOhFA1W.Yenle8kil56LqhWCOvM7/JVy8E5YrOoZisUi"
+  }
+]

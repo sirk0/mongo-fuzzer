@@ -1,0 +1,633 @@
+[
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e72c"
+    },
+    "theaterId": 1000,
+    "location": {
+      "address": {
+        "street1": "340 W Market",
+        "city": "Bloomington",
+        "state": "MN",
+        "zipcode": "55425"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -93.24565,
+          44.85466
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e72d"
+    },
+    "theaterId": 1003,
+    "location": {
+      "address": {
+        "street1": "45235 Worth Ave.",
+        "city": "California",
+        "state": "MD",
+        "zipcode": "20619"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -76.512016,
+          38.29697
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e72e"
+    },
+    "theaterId": 1008,
+    "location": {
+      "address": {
+        "street1": "1621 E Monte Vista Ave",
+        "city": "Vacaville",
+        "state": "CA",
+        "zipcode": "95688"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -121.96328,
+          38.367649
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e72f"
+    },
+    "theaterId": 1004,
+    "location": {
+      "address": {
+        "street1": "5072 Pinnacle Sq",
+        "city": "Birmingham",
+        "state": "AL",
+        "zipcode": "35235"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -86.642662,
+          33.605438
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e730"
+    },
+    "theaterId": 1002,
+    "location": {
+      "address": {
+        "street1": "1900 E Rio Salado Pkwy",
+        "city": "Tempe",
+        "state": "AZ",
+        "zipcode": "85281"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -111.89966,
+          33.430729
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e731"
+    },
+    "theaterId": 1010,
+    "location": {
+      "address": {
+        "street1": "1025 Veterans Pkwy",
+        "city": "Clarksville",
+        "state": "IN",
+        "zipcode": "47129"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -85.76461,
+          38.327175
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e732"
+    },
+    "theaterId": 1014,
+    "location": {
+      "address": {
+        "street1": "155 Los Altos Pkwy",
+        "city": "Sparks",
+        "state": "NV",
+        "zipcode": "89436"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -119.7412,
+          39.579536
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e733"
+    },
+    "theaterId": 1012,
+    "location": {
+      "address": {
+        "street1": "1207 W Century Ave",
+        "city": "Bismarck",
+        "state": "ND",
+        "zipcode": "58503"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -100.81213,
+          46.829876
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e734"
+    },
+    "theaterId": 1009,
+    "location": {
+      "address": {
+        "street1": "6310 E Pacific Coast Hwy",
+        "city": "Long Beach",
+        "state": "CA",
+        "zipcode": "90803"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -118.11414,
+          33.760353
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e735"
+    },
+    "theaterId": 1013,
+    "location": {
+      "address": {
+        "street1": "9901 Brook Rd",
+        "city": "Glen Allen",
+        "state": "VA",
+        "zipcode": "23059"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -77.459908,
+          37.667957
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e736"
+    },
+    "theaterId": 1017,
+    "location": {
+      "address": {
+        "street1": "4325 Sunset Dr",
+        "city": "San Angelo",
+        "state": "TX",
+        "zipcode": "76904"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -100.50107,
+          31.435648
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e737"
+    },
+    "theaterId": 1018,
+    "location": {
+      "address": {
+        "street1": "1307 E Gladstone St",
+        "city": "Glendora",
+        "state": "CA",
+        "zipcode": "91740"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -117.83625,
+          34.11612
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e738"
+    },
+    "theaterId": 1015,
+    "location": {
+      "address": {
+        "street1": "1721 Osgood Dr",
+        "city": "Altoona",
+        "state": "PA",
+        "zipcode": "16602"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -78.382912,
+          40.490524
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e739"
+    },
+    "theaterId": 1011,
+    "location": {
+      "address": {
+        "street1": "740 S Sepulveda Blvd",
+        "city": "El Segundo",
+        "state": "CA",
+        "zipcode": "90245"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -118.3960826,
+          33.9051385
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e73a"
+    },
+    "theaterId": 1019,
+    "location": {
+      "address": {
+        "street1": "390 Northridge Mall",
+        "city": "Salinas",
+        "state": "CA",
+        "zipcode": "93906"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -121.65946,
+          36.715809
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e73b"
+    },
+    "theaterId": 101,
+    "location": {
+      "address": {
+        "street1": "25422 El Paseo",
+        "city": "Mission Viejo",
+        "state": "CA",
+        "zipcode": "92691"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -117.674814,
+          33.590599
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e73c"
+    },
+    "theaterId": 1021,
+    "location": {
+      "address": {
+        "street1": "700 Du Bois St",
+        "city": "San Rafael",
+        "state": "CA",
+        "zipcode": "94901"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -122.51875,
+          37.966579
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e73d"
+    },
+    "theaterId": 1020,
+    "location": {
+      "address": {
+        "street1": "79220 Hwy 111",
+        "city": "La Quinta",
+        "state": "CA",
+        "zipcode": "92253"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -116.28111,
+          33.709164
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e73e"
+    },
+    "theaterId": 1026,
+    "location": {
+      "address": {
+        "street1": "95 Elm St",
+        "city": "Enfield",
+        "state": "CT",
+        "zipcode": "06082"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -72.583824,
+          41.998211
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e73f"
+    },
+    "theaterId": 1023,
+    "location": {
+      "address": {
+        "street1": "823 N Creek Dr",
+        "city": "Sherman",
+        "state": "TX",
+        "zipcode": "75092"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -96.608055,
+          33.685692
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e740"
+    },
+    "theaterId": 1022,
+    "location": {
+      "address": {
+        "street1": "609 Potomac Station Dr NE",
+        "city": "Leesburg",
+        "state": "VA",
+        "zipcode": "20176"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -77.532104,
+          39.098255
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e741"
+    },
+    "theaterId": 1025,
+    "location": {
+      "address": {
+        "street1": "17200 Mercantile Blvd",
+        "city": "Noblesville",
+        "state": "IN",
+        "zipcode": "46060"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -85.990822,
+          40.038788
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e742"
+    },
+    "theaterId": 1024,
+    "location": {
+      "address": {
+        "street1": "138 E Interstate 20",
+        "street2": "Ste 120",
+        "city": "Weatherford",
+        "state": "TX",
+        "zipcode": "76087"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -97.783157,
+          32.727791
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e743"
+    },
+    "theaterId": 1027,
+    "location": {
+      "address": {
+        "street1": "5944 Quebec St",
+        "city": "Fort Worth",
+        "state": "TX",
+        "zipcode": "76135"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -97.429245,
+          32.804398
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e744"
+    },
+    "theaterId": 1028,
+    "location": {
+      "address": {
+        "street1": "529 5th Ave",
+        "city": "New York",
+        "state": "NY",
+        "zipcode": "10017"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -73.980011,
+          40.754333
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e745"
+    },
+    "theaterId": 1037,
+    "location": {
+      "address": {
+        "street1": "312 Newnan Crossing Byp E",
+        "city": "Newnan",
+        "state": "GA",
+        "zipcode": "30265"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -84.758972,
+          33.393749
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e746"
+    },
+    "theaterId": 1029,
+    "location": {
+      "address": {
+        "street1": "3105 E Main St",
+        "city": "Mohegan Lake",
+        "state": "NY",
+        "zipcode": "10547"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -73.871277,
+          41.310825
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e747"
+    },
+    "theaterId": 1038,
+    "location": {
+      "address": {
+        "street1": "6060 Long Prairie Rd",
+        "city": "Flower Mound",
+        "state": "TX",
+        "zipcode": "75028"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -97.080109,
+          33.06926
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e748"
+    },
+    "theaterId": 1030,
+    "location": {
+      "address": {
+        "street1": "5890 N Elizabeth St",
+        "city": "Pueblo",
+        "state": "CO",
+        "zipcode": "81008"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -104.61839,
+          38.329201
+        ]
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59a47286cfa9a3a73e51e749"
+    },
+    "theaterId": 1034,
+    "location": {
+      "address": {
+        "street1": "3404 W 13th St",
+        "city": "Grand Island",
+        "state": "NE",
+        "zipcode": "68803"
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          -98.382164,
+          40.933624
+        ]
+      }
+    }
+  }
+]

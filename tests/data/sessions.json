@@ -1,0 +1,142 @@
+[
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657881"
+    },
+    "user_id": "sean_bean@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-0.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657882"
+    },
+    "user_id": "mark_addy@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-1.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657883"
+    },
+    "user_id": "nikolaj_coster-waldau@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-2.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657884"
+    },
+    "user_id": "michelle_fairley@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-3.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657885"
+    },
+    "user_id": "lena_headey@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-4.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657886"
+    },
+    "user_id": "emilia_clarke@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-5.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657887"
+    },
+    "user_id": "iain_glen@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-6.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657888"
+    },
+    "user_id": "aidan_gillen@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-7.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657889"
+    },
+    "user_id": "harry_lloyd@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-8.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb065788a"
+    },
+    "user_id": "kit_harington@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-9.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb065788b"
+    },
+    "user_id": "sophie_turner@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-10.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb065788c"
+    },
+    "user_id": "maisie_williams@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-11.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb065788d"
+    },
+    "user_id": "richard_madden@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-12.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb065788e"
+    },
+    "user_id": "alfie_allen@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-13.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb065788f"
+    },
+    "user_id": "isaac_hempstead_wright@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-14.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657890"
+    },
+    "user_id": "jack_gleeson@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-15.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657891"
+    },
+    "user_id": "rory_mccann@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-16.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657892"
+    },
+    "user_id": "peter_dinklage@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-17.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657893"
+    },
+    "user_id": "jason_momoa@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-18.signature"
+  },
+  {
+    "_id": {
+      "$oid": "6a25a7fbcbfb730fb0657894"
+    },
+    "user_id": "liam_cunningham@gameofthron.es",
+    "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.sample-payload-19.signature"
+  }
+]
