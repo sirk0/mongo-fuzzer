@@ -119,7 +119,7 @@ Atlas CLI), or restore from a cloud backup snapshot if your tier has one.
 
 The fuzz tests in `tests/test_fuzz_movies.py` use
 [Hypothesis](https://hypothesis.readthedocs.io/) to generate randomized
-inputs. 
+inputs.
 
 Other useful Hypothesis CLI flags (also provided by the plugin):
 
