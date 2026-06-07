@@ -1,0 +1,19 @@
+[project]
+name = "mongo-fuzzer"
+version = "0.1.0"
+description = "MongoDB testing playground: CRUD tests, sample_mflix fixtures, and Hypothesis-based fuzz tests"
+readme = "README.md"
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+warn_unused_ignores = true
+warn_redundant_casts = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
