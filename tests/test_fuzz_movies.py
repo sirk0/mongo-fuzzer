@@ -11,6 +11,34 @@ fuzz = settings(
     suppress_health_check=[HealthCheck.function_scoped_fixture], deadline=None
 )
 
+QUERYABLE_FIELDS = [
+    "year",
+    "runtime",
+    "rated",
+    "type",
+    "title",
+    "imdb.rating",
+    "imdb.votes",
+]
+COMPARISON_OPS = ["$eq", "$gt", "$lt", "$gte", "$lte", "$ne"]
+LOGICAL_OPS = ["$and", "$or"]
+VALUES = [0, 1, -1, None, "", "active", "inactive", 99999, True, False]
+
+
+@st.composite
+def comparison_clause(draw: st.DrawFn) -> dict:
+    field = draw(st.sampled_from(QUERYABLE_FIELDS))
+    op = draw(st.sampled_from(COMPARISON_OPS))
+    value = draw(st.sampled_from(VALUES))
+    return {field: {op: value}}
+
+
+@st.composite
+def logical_query(draw: st.DrawFn) -> tuple[str, list[dict]]:
+    op = draw(st.sampled_from(LOGICAL_OPS))
+    clauses = draw(st.lists(comparison_clause(), min_size=2, max_size=3))
+    return op, clauses
+
 
 @fuzz
 @given(
@@ -107,3 +135,34 @@ def test_projection_returns_only_requested_fields(
 
     assert len(results) == min(limit, movies.count_documents({}))
     assert all(set(m.keys()) == {"title", "year"} for m in results)
+
+
+@fuzz
+@given(query=comparison_clause())
+def test_dynamic_comparison_query_executes_consistently(
+    movies: Collection, query: dict
+) -> None:
+    results = list(movies.find(query))
+    all_ids = {m["_id"] for m in movies.find()}
+
+    assert movies.count_documents(query) == len(results)
+    assert {m["_id"] for m in results} <= all_ids
+
+
+@fuzz
+@given(generated=logical_query())
+def test_logical_query_matches_set_combination_of_clauses(
+    movies: Collection, generated: tuple[str, list[dict]]
+) -> None:
+    op, clauses = generated
+
+    combined_ids = {m["_id"] for m in movies.find({op: clauses})}
+    clause_id_sets = [{m["_id"] for m in movies.find(clause)} for clause in clauses]
+
+    expected_ids = (
+        set.intersection(*clause_id_sets)
+        if op == "$and"
+        else set.union(*clause_id_sets)
+    )
+
+    assert combined_ids == expected_ids
