@@ -7,3 +7,11 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    healthcheck:
+      test: >
+        mongosh --quiet --username root --password example
+        --eval "db.adminCommand('ping')"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
