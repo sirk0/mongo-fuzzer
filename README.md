@@ -89,16 +89,20 @@ collections. The CRUD test always runs against `test_db.test_collection`.
    MONGO_URI=mongodb+srv://<username>:<password>@<cluster-host>/?retryWrites=true&w=majority
    ```
 
-2. Run pytest, pointing it at that file with `--env-file`:
+2. Run pytest with `--env-file` and `--hypothesis-profile=ci`. The `ci`
+   profile sets `deadline=None`, which prevents Hypothesis from timing out
+   individual examples due to Atlas network latency:
 
    ```bash
-   .venv/bin/python -m pytest tests/ -v --env-file atlas.env
+   .venv/bin/python -m pytest tests/ -v \
+     --env-file atlas.env \
+     --hypothesis-profile=ci
    ```
 
    Alternatively, export `MONGO_URI` directly instead of using a file:
 
    ```bash
-   MONGO_URI="mongodb+srv://..." pytest tests/ -v
+   MONGO_URI="mongodb+srv://..." pytest tests/ -v --hypothesis-profile=ci
    ```
 
 ## Tuning Hypothesis (number of examples, deadlines, etc.) from the CLI
@@ -148,5 +152,4 @@ run can be reproduced locally with `--hypothesis-seed=<value>`.
 ```bash
 make help    # list available targets
 make lint    # run pre-commit hooks (ruff, mypy, hadolint, etc.) over all files
-make format  # run ruff formatter
 ```
