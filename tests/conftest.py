@@ -26,8 +26,7 @@ SAMPLE_MFLIX_COLLECTIONS: dict[str, str] = {
 }
 
 # Hypothesis profiles: select one with `pytest --hypothesis-profile=<name>`
-# (or the HYPOTHESIS_PROFILE env var) to control fuzzing parameters such as
-# the number of examples generated per test.
+# or by setting HYPOTHESIS_PROFILE in your env / .env file.
 settings.register_profile("default", max_examples=100)
 settings.register_profile("dev", max_examples=10, deadline=None)
 settings.register_profile("ci", max_examples=200, deadline=None)
@@ -38,7 +37,6 @@ settings.register_profile(
     deadline=None,
     suppress_health_check=[HealthCheck.too_slow],
 )
-settings.load_profile(os.environ.get("HYPOTHESIS_PROFILE", "default"))
 
 
 def pytest_addoption(parser: pytest.Parser) -> None:
@@ -46,18 +44,24 @@ def pytest_addoption(parser: pytest.Parser) -> None:
         "--env-file",
         action="store",
         default=None,
-        help="Path to a .env file containing MONGO_URI. Not loaded by default; "
-        "pass this explicitly to point tests at a different MongoDB instance "
-        "(e.g. a MongoDB Atlas cluster).",
+        help="Path to a .env file containing MONGO_URI and optionally "
+        "HYPOTHESIS_PROFILE. Not loaded by default; pass this explicitly "
+        "to point tests at a different MongoDB instance (e.g. Atlas).",
     )
 
 
-@pytest.fixture(scope="session")
-def mongo_uri(request: pytest.FixtureRequest) -> str:
-    env_file = request.config.getoption("--env-file")
+def pytest_configure(config: pytest.Config) -> None:
+    # Load the env file early — before fixtures run — so that MONGO_URI and
+    # HYPOTHESIS_PROFILE defined there are visible to everything that follows.
+    env_file = config.getoption("--env-file", default=None)
     if env_file:
         load_dotenv(env_file)
 
+    settings.load_profile(os.environ.get("HYPOTHESIS_PROFILE", "default"))
+
+
+@pytest.fixture(scope="session")
+def mongo_uri() -> str:
     return os.environ.get("MONGO_URI", DEFAULT_MONGO_URI)
 
 

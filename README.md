@@ -81,28 +81,25 @@ flags. All seeded collections use a `test_` prefix (`test_movies`,
 `test_comments`, etc.), so they never touch the original Atlas `sample_mflix`
 collections. The CRUD test always runs against `test_db.test_collection`.
 
-1. Keep your Atlas connection string out of source control. Copy `.env.example`
-   to e.g. `atlas.env` (already covered by `.gitignore` via `*.env`) and fill
-   in `MONGO_URI`:
+1. Keep your Atlas connection string out of source control in a `*.env` file
+   (covered by `.gitignore`). Add both `MONGO_URI` and `HYPOTHESIS_PROFILE`
+   so you don't have to pass them on the command line every time:
 
-   ```
+   ```bash
+   # atlas.env
    MONGO_URI=mongodb+srv://<username>:<password>@<cluster-host>/?retryWrites=true&w=majority
+   HYPOTHESIS_PROFILE=atlas
    ```
 
-2. Run pytest with `--env-file` and `--hypothesis-profile=atlas`. The
-   `atlas` profile disables per-example deadlines and suppresses the
-   `too_slow` health check, both of which trip on Atlas network latency:
+   The `atlas` Hypothesis profile disables per-example deadlines and suppresses
+   the `too_slow` health check, both of which trip on Atlas network latency
+   (see the profiles table below).
+
+2. Run pytest with `--env-file` only — both variables are picked up from the
+   file automatically:
 
    ```bash
-   .venv/bin/python -m pytest tests/ -v \
-     --env-file atlas.env \
-     --hypothesis-profile=atlas
-   ```
-
-   Alternatively, export `MONGO_URI` directly instead of using a file:
-
-   ```bash
-   MONGO_URI="mongodb+srv://..." pytest tests/ -v --hypothesis-profile=atlas
+   .venv/bin/python -m pytest tests/ -v --env-file atlas.env
    ```
 
 ## Tuning Hypothesis (number of examples, deadlines, etc.) from the CLI
