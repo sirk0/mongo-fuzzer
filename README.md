@@ -89,20 +89,20 @@ collections. The CRUD test always runs against `test_db.test_collection`.
    MONGO_URI=mongodb+srv://<username>:<password>@<cluster-host>/?retryWrites=true&w=majority
    ```
 
-2. Run pytest with `--env-file` and `--hypothesis-profile=ci`. The `ci`
-   profile sets `deadline=None`, which prevents Hypothesis from timing out
-   individual examples due to Atlas network latency:
+2. Run pytest with `--env-file` and `--hypothesis-profile=atlas`. The
+   `atlas` profile disables per-example deadlines and suppresses the
+   `too_slow` health check, both of which trip on Atlas network latency:
 
    ```bash
    .venv/bin/python -m pytest tests/ -v \
      --env-file atlas.env \
-     --hypothesis-profile=ci
+     --hypothesis-profile=atlas
    ```
 
    Alternatively, export `MONGO_URI` directly instead of using a file:
 
    ```bash
-   MONGO_URI="mongodb+srv://..." pytest tests/ -v --hypothesis-profile=ci
+   MONGO_URI="mongodb+srv://..." pytest tests/ -v --hypothesis-profile=atlas
    ```
 
 ## Tuning Hypothesis (number of examples, deadlines, etc.) from the CLI
@@ -112,12 +112,13 @@ The fuzz tests in `tests/test_fuzz_movies.py` use
 inputs. `tests/conftest.py` registers a few named profiles that control things
 like how many examples are generated per test:
 
-| Profile    | `max_examples` | Notes                              |
-|------------|---------------:|------------------------------------|
-| `default`  | 100            | used when nothing else is selected |
-| `dev`      | 10             | fast feedback while iterating      |
-| `ci`       | 200            | more thorough, no deadline         |
-| `thorough` | 1000           | deep fuzzing run, no deadline      |
+| Profile    | `max_examples` | `deadline`  | Notes                                           |
+|------------|---------------:|-------------|--------------------------------------------------|
+| `default`  | 100            | 200ms       | used when nothing else is selected               |
+| `dev`      | 10             | none        | fast feedback while iterating                    |
+| `ci`       | 200            | none        | thorough automated run                           |
+| `thorough` | 1000           | none        | deep fuzzing run                                 |
+| `atlas`    | 50             | none        | remote cluster; also suppresses `too_slow` check |
 
 Select a profile from the command line with the `--hypothesis-profile` flag
 (provided automatically by the Hypothesis pytest plugin):

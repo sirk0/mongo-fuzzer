@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from bson import json_util
 from dotenv import load_dotenv
-from hypothesis import settings
+from hypothesis import HealthCheck, settings
 from pymongo import MongoClient
 from pymongo.collection import Collection
 from pymongo.database import Database
@@ -30,8 +30,14 @@ SAMPLE_MFLIX_COLLECTIONS: dict[str, str] = {
 # the number of examples generated per test.
 settings.register_profile("default", max_examples=100)
 settings.register_profile("dev", max_examples=10, deadline=None)
-settings.register_profile("thorough", max_examples=1000, deadline=None)
 settings.register_profile("ci", max_examples=200, deadline=None)
+settings.register_profile("thorough", max_examples=1000, deadline=None)
+settings.register_profile(
+    "atlas",
+    max_examples=50,
+    deadline=None,
+    suppress_health_check=[HealthCheck.too_slow],
+)
 settings.load_profile(os.environ.get("HYPOTHESIS_PROFILE", "default"))
 
 
