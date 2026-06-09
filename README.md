@@ -3,8 +3,8 @@
 A small Python playground for testing MongoDB: CRUD tests against a local
 MongoDB instance, fixtures that load a representative `sample_mflix`-style
 dataset, and Hypothesis-based property/fuzz tests for querying it. The suite
-can also be pointed at a real MongoDB Atlas cluster, with a `--read-only`
-safety switch to guarantee shared/sample data is never modified.
+can also be pointed at a real MongoDB Atlas cluster safely — all seeded
+collections use a `test_` prefix so they never overwrite original Atlas data.
 
 ## Project overview
 
@@ -15,11 +15,13 @@ safety switch to guarantee shared/sample data is never modified.
   - `collection` — an isolated, function-scoped `test_db.test_collection`
     used by the CRUD tests; it is created empty and cleaned up after itself.
   - `sample_mflix_db` / `movies` — a session-scoped `sample_mflix` database,
-    seeded from the small representative datasets in `tests/data/*.json`
-    (skippable via `--read-only`, see below).
+    seeded from the small representative datasets in `tests/data/*.json` into
+    `test_`-prefixed collections (e.g. `test_movies`, `test_comments`, …).
+    The fixture creates indexes on queried fields after seeding and cleans up
+    after the session.
 - `tests/test_crud.py` — a full create/read/update/delete flow as one test
   using native pytest 9 subtests.
-- `tests/test_movies.py` — simple queries against the seeded `movies`
+- `tests/test_movies.py` — simple queries against the seeded `test_movies`
   collection.
 - `tests/test_fuzz_movies.py` — [Hypothesis](https://hypothesis.readthedocs.io/)
   property-based fuzz tests that generate random queries (including dynamic
@@ -32,7 +34,8 @@ safety switch to guarantee shared/sample data is never modified.
 
 ## Setup
 
-Requires Python 3.11+ and Docker (for running MongoDB locally).
+Requires Python (see `.python-version` for the exact version used by this
+project) and Docker (for running MongoDB locally).
 
 ```bash
 python -m venv .venv
@@ -61,8 +64,8 @@ make test
 
 This connects to `mongodb://root:example@localhost:27017` by default (see
 `DEFAULT_MONGO_URI` in `tests/conftest.py`), seeds a local `sample_mflix`
-database from `tests/data/*.json`, runs the full suite (CRUD + movie queries +
-fuzz tests), and cleans up after itself.
+database from `tests/data/*.json` into `test_`-prefixed collections, runs the
+full suite (CRUD + movie queries + fuzz tests), and cleans up after itself.
 
 You can override the connection target with the `MONGO_URI` environment
 variable:
@@ -73,67 +76,77 @@ MONGO_URI="mongodb://root:example@localhost:27017" pytest tests/ -v
 
 ## Running tests against MongoDB Atlas
 
-⚠️ **Always use `--read-only` when pointing at a shared or real Atlas
-cluster.** Without it, the suite will seed/clean up the `sample_mflix`
-database — which means it will **delete whatever is currently there**,
-including the original sample dataset.
+The test suite is safe to run against a real Atlas cluster without any extra
+flags. All seeded collections use a `test_` prefix (`test_movies`,
+`test_comments`, etc.), so they never touch the original Atlas `sample_mflix`
+collections. The CRUD test always runs against `test_db.test_collection`.
 
-1. Keep your Atlas connection string out of source control. Copy
-   `.env.example` to e.g. `atlas.env` (already covered by `.gitignore` via the
-   `*.env` pattern) and fill in `MONGO_URI`:
+1. Keep your Atlas connection string out of source control. Copy `.env.example`
+   to e.g. `atlas.env` (already covered by `.gitignore` via `*.env`) and fill
+   in `MONGO_URI`:
 
    ```
    MONGO_URI=mongodb+srv://<username>:<password>@<cluster-host>/?retryWrites=true&w=majority
    ```
 
-2. Run pytest, pointing it at that file with `--env-file` **and** passing
-   `--read-only`:
+2. Run pytest, pointing it at that file with `--env-file`:
 
    ```bash
-   .venv/bin/python -m pytest tests/ -v --env-file atlas.env --read-only
+   .venv/bin/python -m pytest tests/ -v --env-file atlas.env
    ```
 
    Alternatively, export `MONGO_URI` directly instead of using a file:
 
    ```bash
-   MONGO_URI="mongodb+srv://..." pytest tests/ -v --read-only
+   MONGO_URI="mongodb+srv://..." pytest tests/ -v
    ```
-
-What `--read-only` does:
-
-- The `sample_mflix_db` fixture **skips seeding and cleanup entirely** — it
-  uses the existing database as-is and never calls `delete_many`/`insert_many`
-  against it. This is what protects a real Atlas `sample_mflix` cluster from
-  being overwritten or wiped.
-- It does **not** affect the CRUD tests — those run against their own
-  isolated `test_db.test_collection` (created and torn down per-test), which
-  is safe to exercise even against an Atlas cluster.
-
-If you forget `--read-only` against a cluster you care about, the seed/cleanup
-cycle **will delete existing data** in `sample_mflix`. If that happens, Atlas
-can usually restore the official sample dataset for you (cluster menu → "Load
-Sample Dataset", or `atlas clusters loadSampleData <clusterName>` via the
-Atlas CLI), or restore from a cloud backup snapshot if your tier has one.
 
 ## Tuning Hypothesis (number of examples, deadlines, etc.) from the CLI
 
 The fuzz tests in `tests/test_fuzz_movies.py` use
 [Hypothesis](https://hypothesis.readthedocs.io/) to generate randomized
-inputs.
+inputs. `tests/conftest.py` registers a few named profiles that control things
+like how many examples are generated per test:
+
+| Profile    | `max_examples` | Notes                              |
+|------------|---------------:|------------------------------------|
+| `default`  | 100            | used when nothing else is selected |
+| `dev`      | 10             | fast feedback while iterating      |
+| `ci`       | 200            | more thorough, no deadline         |
+| `thorough` | 1000           | deep fuzzing run, no deadline      |
+
+Select a profile from the command line with the `--hypothesis-profile` flag
+(provided automatically by the Hypothesis pytest plugin):
+
+```bash
+.venv/bin/python -m pytest tests/test_fuzz_movies.py -v --hypothesis-profile=dev
+.venv/bin/python -m pytest tests/test_fuzz_movies.py -v --hypothesis-profile=thorough
+```
+
+Or via the `HYPOTHESIS_PROFILE` environment variable:
+
+```bash
+HYPOTHESIS_PROFILE=thorough pytest tests/test_fuzz_movies.py -v
+```
 
 Other useful Hypothesis CLI flags (also provided by the plugin):
 
 ```bash
-# reproduce a specific run
+# pin a specific seed for reproducible runs (CI prints the seed it used)
 pytest tests/test_fuzz_movies.py --hypothesis-seed=12345
 
-# print example/shrink statistics
+# print per-test example/shrink statistics (always enabled in CI)
 pytest tests/test_fuzz_movies.py --hypothesis-show-statistics
 ```
+
+In CI, a random seed is generated at the start of each run and passed via
+`--hypothesis-seed`. The seed value is visible in the CI logs, so a failing
+run can be reproduced locally with `--hypothesis-seed=<value>`.
 
 ## Other Makefile targets
 
 ```bash
 make help    # list available targets
 make lint    # run pre-commit hooks (ruff, mypy, hadolint, etc.) over all files
+make format  # run ruff formatter
 ```
